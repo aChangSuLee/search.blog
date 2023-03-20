@@ -32,4 +32,12 @@ public class GlobalExceptionHandler {
         .status(HttpStatus.BAD_REQUEST)
         .body(errorResult);
   }
+
+  @ExceptionHandler(Exception.class)
+  protected ResponseEntity<?> handlerException(Exception ex) {
+    log.error("unhandled exception: {}", ex.getMessage());
+    return ResponseEntity
+        .status(HttpStatus.INTERNAL_SERVER_ERROR)
+        .body("Internal Server Error");
+  }
 }

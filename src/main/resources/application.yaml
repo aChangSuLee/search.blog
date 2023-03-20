@@ -22,4 +22,11 @@ source:
     daum:
       url: https://dapi.kakao.com/v2/search/blog
       apiKey: "KakaoAK 77162c195c842ef9e5fa02ab865bb976"
-    #naver:
+    naver:
+      url: https://openapi.naver.com/v1/search/blog.json
+      client-id: 0Xn8hPrNHZ3E0QCy00R7
+      client-secret: sk2iq9WUfW
+
+springdoc:
+  swagger-ui:
+    display-request-duration: true

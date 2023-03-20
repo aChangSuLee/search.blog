@@ -19,6 +19,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 	implementation("org.projectlombok:lombok:1.18.26")
 	implementation("org.springframework.boot:spring-boot-starter-jdbc")
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.4")
 	runtimeOnly("com.h2database:h2")
 	annotationProcessor("org.projectlombok:lombok:1.18.26")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
