@@ -13,6 +13,10 @@ public class NaverBlog extends SearchSource {
 
   private final WebClient naverBlogClient;
 
+  {
+    this.setSourceName("naver");
+  }
+
   @Override
   public SearchResult search(SearchRequest request) {
     String sortOpt = request.getSort().equals("accuracy") ? "sim" : "date";

@@ -13,6 +13,10 @@ public class DaumBlog extends SearchSource {
 
   private final WebClient daumBlogClient;
 
+  {
+    this.setSourceName("daum");
+  }
+
   @Override
   public SearchResult search(SearchRequest request) throws Exception {
     return daumBlogClient.get()

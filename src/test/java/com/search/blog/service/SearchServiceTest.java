@@ -16,7 +16,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class SearchServiceTest {
   private static MockWebServer daumMockWebServer;
   private static MockWebServer naverMockWebServer;
@@ -98,7 +97,6 @@ public class SearchServiceTest {
   }
 
   @Test
-  @Order(1)
   @DisplayName("정상 응답")
   void searchTest () throws Exception {
     daumMockWebServer.enqueue(new MockResponse()
@@ -114,7 +112,6 @@ public class SearchServiceTest {
   }
 
   @Test
-  @Order(1)
   @DisplayName("다음 블로그 이상으로 네이버 블로그에서 검색")
   void daumSourceResponse5xxTest () throws Exception {
     daumMockWebServer.enqueue(new MockResponse()
@@ -128,6 +125,22 @@ public class SearchServiceTest {
 
     SearchRequest request = new SearchRequest();
     request.setKeyword("사랑");
+    SearchResult result = searchService.search(request);
+
+    assert result != null;
+    assert result.getTotalSize().equals(naverSearchResult.getTotalSize());
+  }
+
+  @Test
+  @DisplayName("네이버 블로그에서 검색")
+  void naverSourceSearch () throws Exception {
+    naverMockWebServer.enqueue(new MockResponse()
+        .setBody(objectMapper.writeValueAsString(naverSearchResult))
+        .setHeader("Content-Type", "application/json"));
+
+    SearchRequest request = new SearchRequest();
+    request.setKeyword("사랑");
+    request.setSource("naver");
     SearchResult result = searchService.search(request);
 
     assert result != null;

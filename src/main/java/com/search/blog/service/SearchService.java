@@ -21,10 +21,12 @@ public class SearchService {
   public SearchResult search(SearchRequest request) throws Exception {
     SearchResult result;
 
+    SearchSource searchSource = request.getSource().equals("daum") ? daumBlog : naverBlog;
+
     try {
-      result = daumBlog.search(request);
+      result = searchSource.search(request);
     } catch (Exception e) {
-      log.error("daum blog error: {}", e.getMessage());
+      log.error("{} blog error: {}", searchSource.getSourceName(), e.getMessage());
       result = getNextSource().search(request);
     }
 

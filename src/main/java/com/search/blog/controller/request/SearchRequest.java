@@ -34,6 +34,10 @@ public class SearchRequest {
   @SortOptCheck(message = "sort is not allowed option")
   private String sort = "accuracy";
 
+  @Getter
+  @Setter
+  private String source = "daum";
+
   public void setKeyword (String keyword) {
     this.keyword = keyword.trim();
   }
