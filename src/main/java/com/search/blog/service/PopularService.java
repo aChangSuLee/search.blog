@@ -14,7 +14,7 @@ public class PopularService {
   private final KeywordFrequencyRepository keywordFrequencyRepository;
 
   public List<KeywordFrequencyDTO> popularKeywords () {
-    return keywordFrequencyRepository.findTop10ByOrderByFrequencyDesc().stream()
+    return keywordFrequencyRepository.findTop10ByOrderByFrequencyDescKeywordDesc().stream()
         .map(KeywordFrequencyDTO::new)
         .toList();
   }

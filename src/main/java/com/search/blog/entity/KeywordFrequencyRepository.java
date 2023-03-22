@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface KeywordFrequencyRepository extends JpaRepository<KeywordFrequency, Long> {
   KeywordFrequency findByKeyword(String keyword);
-  List<KeywordFrequency> findTop10ByOrderByFrequencyDesc();
+  List<KeywordFrequency> findTop10ByOrderByFrequencyDescKeywordDesc();
 }

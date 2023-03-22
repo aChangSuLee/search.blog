@@ -18,4 +18,5 @@ Daum 블로그 글을 먼저 검색하고 오류 발생시 Naver 블로그를 �
 
 - java -jar search.blog-0.0.1-SNAPSHOT.jar
 
-swagger: /swagger-ui/index.html
+
+swagger: http://localhost:8080/swagger-ui/index.html

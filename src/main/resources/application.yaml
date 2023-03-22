@@ -10,10 +10,6 @@ spring:
       mode: always
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
-    properties:
-      hibernate:
-        format_sql: true
-        show_sql: true
     hibernate:
       ddl-auto: create
 
